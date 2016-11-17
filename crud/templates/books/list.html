@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="col-lg-12">
+    <a href="/books/new" class="btn btn-primary">Create a new book</a>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Subtitle</th>
+                <th>ISBN</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for book in books %}
+                <tr>
+                    <td>{{ book._id }}</td>
+                    <td>{{ book.name }}</td>
+                    <td>{{ book.subtitle }}</td>
+                    <td>{{ book.isbn }}</td>
+                    <td>
+                        <a href={{ url_for('listOne', id = book._id) }} class="btn btn-primary btn-sm">See</a>
+                        <form action={{ url_for('remove', id = book._id) }} method="POST">
+                            <button type="submit" class="btn btn-primary btn-sm">Del</button>
+                        </form>
+                        <a href={{ url_for('edit', id = book._id) }} class="btn btn-primary btn-sm">Edit</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="col-lg-12">
+    <a href="/books/new" class="btn btn-primary">Create a new book</a>
+    <a href="/books" class="btn btn-secondary">Back to list</a>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Subtitle</th>
+                <th>ISBN</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>{{ book._id }}</td>
+                <td>{{ book.name }}</td>
+                <td>{{ book.subtitle }}</td>
+                <td>{{ book.isbn }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+{% endblock %}
